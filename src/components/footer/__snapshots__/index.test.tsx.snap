@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component should render successfully 1`] = `
+<DocumentFragment>
+  <footer
+    class="c-footer"
+  >
+    <div
+      class="o-shell"
+    >
+      <p>
+        © 2024. All rights reserved.
+      </p>
+      <p>
+        Change language:
+        <button>
+          de
+        </button>
+        <button
+          disabled=""
+        >
+          en
+        </button>
+      </p>
+    </div>
+  </footer>
+</DocumentFragment>
+`;

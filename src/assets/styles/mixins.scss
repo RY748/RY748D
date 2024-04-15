@@ -1,0 +1,88 @@
+@mixin flex($align, $justify) {
+	display: flex;
+	align-items: $align;
+	justify-content: $justify;
+}
+
+@mixin flex-row($wrap: wrap, $align: stretch, $justify: space-between) {
+	@include flex($align, $justify);
+
+	flex-flow: row $wrap;
+}
+
+@mixin flex-column($wrap: nowrap, $align: stretch, $justify: space-between) {
+	@include flex($align, $justify);
+
+	flex-flow: column $wrap;
+}
+
+@mixin small-desktop {
+	@media (max-width: #{$small-desktop}) {
+		@content;
+	}
+}
+
+@mixin desktop-only {
+	@media (calc($tablet-landscape + 1) <= width) {
+		@content;
+	}
+}
+
+@mixin tablet-landscape {
+	@media (max-width: #{$tablet-landscape}) {
+		@content;
+	}
+}
+
+@mixin tablet-landscape-only {
+	@media (calc($tablet-portrait + 1) <= width <= $tablet-landscape) {
+		@content;
+	}
+}
+
+@mixin tablet-portrait {
+	@media (max-width: #{$tablet-portrait}) {
+		@content;
+	}
+}
+
+@mixin tablet-portrait-only {
+	@media (calc($mobile + 1) <= width <= $tablet-portrait) {
+		@content;
+	}
+}
+
+@mixin mobile {
+	@media (max-width: #{$mobile}) {
+		@content;
+	}
+}
+
+@mixin hover {
+	&:hover {
+		@media (-ms-high-contrast: none), (-ms-high-contrast: active), (-moz-touch-enabled: 0), (hover) {
+			@content;
+		}
+	}
+}
+
+@mixin centered {
+	position: absolute;
+	inset: 0;
+	margin: auto;
+}
+
+@mixin transition($properties, $will-change: true, $timing: $timing, $easing: $easing) {
+	$transition: '';
+
+	@each $property in str-split($properties, ',') {
+		$single: $property + ' ' + $timing + ' ' + $easing + ',';
+		$transition: $transition + $single;
+	}
+
+	transition: $transition;
+
+	@if $will-change == true and $properties != 'all' {
+		will-change: string.unquote($properties);
+	}
+}

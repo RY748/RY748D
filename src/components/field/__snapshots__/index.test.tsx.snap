@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Field component should render successfully 1`] = `
+<DocumentFragment>
+  <div
+    class="c-form__field c-form__field--email c-form__field--error"
+  >
+    <header
+      class="c-form__field-head"
+    >
+      <label
+        for="email"
+      >
+        Email Address
+      </label>
+      <p
+        class="c-form__error"
+      />
+    </header>
+    <input
+      id="email"
+      name="email"
+      placeholder="someone@example.com"
+      type="email"
+    />
+  </div>
+</DocumentFragment>
+`;

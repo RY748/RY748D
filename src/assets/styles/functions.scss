@@ -1,0 +1,27 @@
+@function str-split($string, $separator) {
+	// empty array/list
+	$result: ();
+
+	// first index of separator in string
+	$index: string.index($string, $separator);
+
+	// loop through string
+	@while $index != null {
+		// get the substring from the first character to the separator
+		$item: string.slice($string, 1, $index - 1);
+
+		// push item to array
+		$result: string.append($result, $item);
+
+		// remove item and separator from string
+		$string: string.slice($string, $index + 1);
+
+		// find new index of separator
+		$index: string.index($string, $separator);
+	}
+
+	// add the remaining string to list (the last item)
+	$result: string.append($result, $string);
+
+	@return $result;
+}

@@ -1,0 +1,11 @@
+image: node:lts
+before_script:
+    - yarn
+cache:
+    paths:
+        - node_modules/
+build:
+    script:
+        - yarn lint
+        - yarn test:coverage
+        - yarn build
